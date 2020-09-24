@@ -23,5 +23,8 @@ Vue.component('idioma', require('./components/Idioma.vue'));
 Vue.component('autor', require('./components/Autor.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data:{
+        menu:0
+    }
 });

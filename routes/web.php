@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('contenido/contenido');
 });
+
+Route::get('categorias','CategoriaController@index');
+Route::get('editoriales','EditorialController@index');
+Route::get('autores','AutorController@index');
+Route::get('idiomas','IdiomaController@index');
+Route::get('paises','PaisController@index');
