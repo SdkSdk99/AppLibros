@@ -3,36 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Editoriales;
-
+use App\Editorial;
 class EditorialController extends Controller
 {
+   
     public function index()
     {
-        //
-        $editoriales= Editoriales::all();
-        return $editoriales;
+        $editorial=Editorial::orderBy('nombre','asc')->get();
+        return [
+          'editorial'=>$editorial  
+        ];
     }
 
     public function store(Request $request)
     {
-        
-        $editoriales= new Editoriales();
-        $editoriales->nombre=$request->nombre;
-        $editoriales->save();
-
-    }    
+        $editorial = new Editorial();
+        $editorial->nombre = $request->nombre;
+        $editorial->save();
+    }
 
     public function update(Request $request)
     {
-        $editoriales=Editoriales::findOrFail($request->id);
-        $editoriales->nombre=$request->nombre;
-        $editoriales->save();
+        $editorial = Editorial::findOrFail($request->id);
+        $editorial->nombre = $request->nombre;
+        $editorial->save();
     }
-
+    
     public function destroy(Request $request)
     {
-        $editoriales=Editoriales::findOrFail($request->id);
-        $editoriales->delete();
+        $editorial = Editorial::findOrFail($request->id);
+        $editorial->delete();
     }
 }

@@ -3,36 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Autores;
+use App\Autor;
+use App\Pais;
 
 class AutorController extends Controller
 {
-    public function index()
-    {
-        //
-        $autores= Autores::all();
-        return $autores;
-    }
+   
+public function index(){
+    $autor=Autor::orderBy('nombre','asc')->get();
+    return [
+      'autor'=>$autor  
+    ];
+}
 
     public function store(Request $request)
     {
-        
-        $autores= new Autores();
-        $autores->nombre=$request->nombre;
-        $autores->save();
-
-    }    
+        $autor = new Autor();
+        $autor->nombre = $request->nombre;
+        $autor->save();
+    }
 
     public function update(Request $request)
     {
-        $autores=Autores::findOrFail($request->id);
-        $autores->nombre=$request->nombre;
-        $autores->save();
+        $autor = Autor::findOrFail($request->id);
+        $autor->nombre = $request->nombre;
+        $autor->save();
     }
-
+    
     public function destroy(Request $request)
     {
-        $autores=Autores::findOrFail($request->id);
-        $autores->delete();
+        $autor = Autor::findOrFail($request->id);
+        $autor->delete();
     }
 }

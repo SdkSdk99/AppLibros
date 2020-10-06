@@ -14,24 +14,23 @@ class CreateLibrosTable extends Migration
     public function up()
     {
         Schema::create('libros', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('nombre', 20);
-            $table->string('codigo', 20);
-            $table->integer('cantidad');
+            $table->increments('id');
+            $table->string('nombre',150);
+            $table->string('codigo',50);
+            $table->integer('cant');
             $table->date('ano_publi');
-            $table->string('num_pag', 20);
-            $table->string('ubicacion', 20);
-            $table->string('edicion', 20);
+            $table->string('num_pag',7);
+            $table->string('ubicacion',100);
+            $table->string('edicion',5);
+            $table->integer('id_categoria')->unsigned();
+            $table->integer('id_idioma')->unsigned();
+            $table->integer('id_autor')->unsigned();
+            $table->integer('id_editorial')->unsigned();
 
-            $table->integer('id_editoriale')->signed();            
-            $table->integer('id_categoria')->signed();            
-            $table->integer('id_autore')->signed();            
-            $table->integer('id_idioma')->signed();   
-
-            $table->foreign('id_editoriale')->references('id')->on('editoriales');
             $table->foreign('id_categoria')->references('id')->on('categorias');
-            $table->foreign('id_autore')->references('id')->on('autores');
             $table->foreign('id_idioma')->references('id')->on('idiomas');
+            $table->foreign('id_autor')->references('id')->on('autors');
+            $table->foreign('id_editorial')->references('id')->on('editorials');
             $table->timestamps();
         });
     }

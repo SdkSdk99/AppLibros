@@ -6,6 +6,7 @@
     <template v-if="menu==2">
         <categoria></categoria>
     </template>
+
     <template v-if="menu==3">
         <editorial></editorial>
     </template>
@@ -14,5 +15,8 @@
     </template>
     <template v-if="menu==5">
         <pais></pais>
+    </template>
+    <template v-if="menu==6">
+        <libros></libros>
     </template>
 @endsection

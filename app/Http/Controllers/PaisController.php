@@ -3,36 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Paises;
+use App\Pais;
 
 class PaisController extends Controller
 {
     public function index()
     {
-        //
-        $paises= Paises::all();
-        return $paises;
+        $pais=Pais::orderBy('nombre','asc')->get();
+        return [
+          'pais'=>$pais  
+        ];
     }
 
     public function store(Request $request)
     {
-        
-        $paises= new Paises();
-        $paises->nombre=$request->nombre;
-        $paises->save();
-
-    }    
+        $pais = new Pais();
+        $pais->nombre = $request->nombre;
+        $pais->save();
+    }
 
     public function update(Request $request)
     {
-        $paises=Paises::findOrFail($request->id);
-        $paises->nombre=$request->nombre;
-        $paises->save();
+        $pais = Pais::findOrFail($request->id);
+        $pais->nombre = $request->nombre;
+        $pais->save();
     }
-
+    
     public function destroy(Request $request)
     {
-        $paises=Paises::findOrFail($request->id);
-        $paises->delete();
+        $pais = Pais::findOrFail($request->id);
+        $pais->delete();
     }
 }

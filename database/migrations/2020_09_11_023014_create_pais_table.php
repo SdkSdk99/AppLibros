@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIdiomasTable extends Migration
+class CreatePaisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateIdiomasTable extends Migration
      */
     public function up()
     {
-        Schema::create('idiomas', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('nombre', 20);
+        Schema::create('pais', function (Blueprint $table) {
+            $table->string('id',10)->primary();
+            $table->string('nombre',50);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateIdiomasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('idiomas');
+        Schema::dropIfExists('pais');
     }
 }
