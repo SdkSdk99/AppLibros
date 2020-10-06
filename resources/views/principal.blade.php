@@ -76,7 +76,7 @@
         </div>
     </div>
     <footer class="app-footer">
-        <span><a href="http://www.ADSI.com/">SDPA</a> &copy; 2020</span>
+        <span><a href="http://www.ADSI.com/">Roy M</a> &copy; 2020</span>
         <!-- /Fin del contenido principal -->
         <span class="ml-auto">Desarrollado por <a href="http://www.ADSI.com/">ADSI</a></span>
     </footer>
