@@ -8,11 +8,11 @@ use App\Pais;
 
 class AutorController extends Controller
 {
-   
+
 public function index(){
     $autor=Autor::orderBy('nombre','asc')->get();
     return [
-      'autor'=>$autor  
+    'autor'=>$autor  
     ];
 }
 

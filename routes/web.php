@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('contenido/contenido');
 });
 
-Route::get('categoria', 'CategoriaController@index'); //Traer
-Route::post('categoria/registrar', 'CategoriaController@store'); //Guardar
-Route::put('categoria/actualizar', 'CategoriaController@update'); //Actualizar
-Route::post('categoria/eliminar', 'CategoriaController@destroy'); //Eliminar
+Route::get('categoria', 'CategoriaController@index'); 
+Route::post('categoria/registrar', 'CategoriaController@store'); 
+Route::put('categoria/actualizar', 'CategoriaController@update'); 
+Route::post('categoria/eliminar', 'CategoriaController@destroy'); 
 
 Route::get('editorial', 'EditorialController@index');
 Route::post('editorial/registrar', 'EditorialController@store');
@@ -26,12 +26,10 @@ Route::put('editorial/actualizar', 'EditorialController@update');
 Route::post('editorial/eliminar', 'EditorialController@destroy');
 
 Route::get('idioma', 'IdiomaController@index');
-// Route::post('/idioma/registrar', 'IdiomaController@store');
 Route::put('idioma/actualizar', 'IdiomaController@update');
 Route::post('idioma/eliminar', 'IdiomaController@destroy');
 
 Route::get('pais', 'PaisController@index');
-// Route::post('/pais/registrar', 'PaisController@store');
 Route::put('pais/actualizar', 'PaisController@update');
 Route::post('/pais/eliminar', 'PaisController@destroy');
 

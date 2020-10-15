@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ES">
 
 <head>
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
     <meta name="author" content="adsi.com">
     <meta name="keyword" content="Sistema libros Laravel Vue Js">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="img/iconlibro3.png">
+    <link rel="shortcut icon" href="img/lib.png">
     <title>Sistema Libros</title>
     <!-- Icons -->
     <link rel="stylesheet" href="css/plantilla.css">
@@ -56,7 +56,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false">
-                        <img src="img/iconlibro3.png" class="img-avatar" alt="admin@bootstrapmaster.com">
+                        <img src="img/avatars/7.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
                         <span class="d-md-down-none">admin </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
