@@ -83,7 +83,7 @@
 
         <div class="content">
             <div class="title m-b-md">
-                Roy M Rodríguez
+                Roy Rodríguez
             </div>
 
             <div class="links">
