@@ -40,7 +40,7 @@
                     <tbody>
                         <tr v-for="objeto in arrayDatos" :key="objeto.id">
                             <td v-text="objeto.nombre"></td>
-                             <td v-text="objeto.id_pais"></td>
+                            <td v-text="objeto.id_pais"></td>
                             <td>
                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" @click="abrirModal('editar', objeto)">
                                     <i class="icon-pencil"></i>
