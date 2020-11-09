@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Idioma extends Model
+class Det_solicitudes extends Model
 {
     //
 }

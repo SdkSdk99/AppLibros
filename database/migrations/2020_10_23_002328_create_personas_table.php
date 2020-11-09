@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAutorsTable extends Migration
+class CreatePersonasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateAutorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('autors', function (Blueprint $table) {
-
+        Schema::create('personas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre',150);
-            $table->string('id_pais',10);
-            $table->foreign('id_pais')->references('id')->on('pais');
+            $table->string('nombres',100);
+            $table->string('apellidos',100);
+            $table->string('dir',100);
+            $table->string('tel',14);            
+            $table->string('email',78);            
             $table->timestamps();
         });
     }
@@ -30,7 +31,6 @@ class CreateAutorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('autors');
-
+        Schema::dropIfExists('personas');
     }
 }

@@ -2,53 +2,74 @@
 
 namespace App\Http\Controllers;
 
-use App\Categoria;
 use Illuminate\Http\Request;
+use App\Categorias;
 
 class CategoriaController extends Controller
 {
+    //mostrar datos de la tabla
     public function index(Request $request)
     {
-        $buscar   = $request->nombre;
-        $criterio = $request->criterio;
 
-        if ($buscar == '') {
-            $categoria = Categoria::orderBy('nombre', 'asc')->paginate(4);
-        } else {
-            $categoria = Categoria::where('criterio', '=', $buscar) - orderBy('nombre', 'asc')->paginate(4);
+        $buscar=$request->nombre;
+        $criterio=$request->criterio;
+
+        if ($buscar=='') {
+            $categorias= Categorias::orderBy('nombre','asc')->paginate(4);
+        }else {
+            $categorias= Categorias::where($criterio, 'like', '%'.$buscar. '%')->orderBy('nombre','asc')->paginate(4);
         }
 
-        return [
-            'pagination' => [
-                'total'        => $categoria->total(),
-                'current_page' => $categoria->currentPage(),
-                'per_page'     => $categoria->perPage(),
-                'last_page'    => $categoria->lastPage(),
-                'from'         => $categoria->firstItem(),
-                'to'           => $categoria->lastItem(),
 
+        // GET para obtener
+        // POST guardar en la bd
+        // PUT actualizar o eliminar.
+        
+        
+        return [
+
+            'pagination'=>[
+                'total'=> $categorias -> total(),
+                'current_page'=> $categorias -> currentPage(),
+                'per_page'=> $categorias -> perPage(),
+                'last_page'=> $categorias -> lastPage(),
+                'from'=> $categorias -> firstItem(),
+                'to'=> $categorias -> lastItem(),
             ],
-            'categoria'  => $categoria,
+
+            'categorias'=>$categorias
+        ];
+    }
+    //trae los datos de las llaves foraneas
+    public function getCategorias(Request $request)
+    {
+        $categorias = Categorias::select('id','nombre')
+            ->orderBy('nombre', 'asc')->get();
+        return [
+            'categorias' => $categorias
         ];
     }
 
+    //guardar datos en la bd
     public function store(Request $request)
     {
-        $categoria         = new Categoria();
-        $categoria->nombre = $request->nombre;
-        $categoria->save();
+        $categorias= new Categorias();
+        $categorias->nombre = $request->nombre;
+        $categorias->save();
     }
-
+    
+    //actualizar datos
     public function update(Request $request)
     {
-        $categoria = Categoria::findOrFail($request->id);
-        $categoria->nombre = $request->nombre;
-        $categoria->save();
+        $categorias= Categorias::findOrfail($request->id);
+        $categorias->nombre = $request->nombre;
+        $categorias->save();
     }
 
+    //eliminar datos
     public function destroy(Request $request)
     {
-        $categoria = Categoria::findOrFail($request->id);
-        $categoria->delete();
+        $categorias= Categorias::findOrfail($request->id);
+        $categorias->delete();
     }
 }

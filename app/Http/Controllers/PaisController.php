@@ -3,35 +3,61 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pais;
+use App\Paises;
 
 class PaisController extends Controller
 {
-    public function index()
+ 
+    public function index(Request $request)
     {
-        $pais=Pais::orderBy('nombre','asc')->get();
+        $buscar=$request->nombre;
+        $criterio=$request->criterio;
+
+        if ($buscar=='') {
+            $paises= Paises::orderBy('nombre','asc')->paginate(6);
+        }else {
+            $paises= Paises::where($criterio, 'like', '%'.$buscar. '%')->orderBy('nombre','asc')->paginate(6);
+        }
+
         return [
-          'pais'=>$pais  
+            'pagination'=>[
+                'total'=> $paises -> total(),
+                'current_page'=> $paises -> currentPage(),
+                'per_page'=> $paises -> perPage(),
+                'last_page'=> $paises -> lastPage(),
+                'from'=> $paises -> firstItem(),
+                'to'=> $paises -> lastItem(),
+            ],
+            'paises'=>$paises
         ];
     }
+    public function getPais(Request $request)
+    {
+        $paises = Paises::select('id','nombre')
+            ->orderBy('nombre', 'asc')->get();
+        return [
+            'paises' => $paises];
+    }
+
 
     public function store(Request $request)
     {
-        $pais = new Pais();
-        $pais->nombre = $request->nombre;
-        $pais->save();
+        $paises= new Paises();
+        $paises->nombre = $request->nombre;
+        $paises->save();
     }
+    
 
     public function update(Request $request)
     {
-        $pais = Pais::findOrFail($request->id);
-        $pais->nombre = $request->nombre;
-        $pais->save();
+        $paises= Paises::findOrfail($request->id);
+        $paises->nombre = $request->nombre;
+        $paises->save();
     }
-    
+
     public function destroy(Request $request)
     {
-        $pais = Pais::findOrFail($request->id);
-        $pais->delete();
+        $paises= Paises::findOrfail($request->id);
+        $paises->delete();
     }
 }
