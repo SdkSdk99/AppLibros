@@ -21,7 +21,7 @@
                     <div class="col-md-6">
                         <div class="input-group">
                             <select class="form-control col-md-3" id="opcion" name="opcion">
-                              <option value="nombre">Nombre</option>
+                            <option value="nombre">Nombre</option>
                             </select>
                             <input type="text" id="texto" name="texto" v-model="buscar" class="form-control" placeholder="Texto a buscar">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -40,10 +40,10 @@
                             <td v-text="objeto.nombre"></td>
                             <td>
                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" @click="abrirModal('editar',objeto)">
-                                  <i class="icon-pencil"></i>
+                                <i class="icon-pencil"></i>
                                 </button> &nbsp;
                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" @click="eliminarIdioma(objeto)">
-                                  <i class="icon-trash"></i>
+                                <i class="icon-trash"></i>
                                 </button>
                             </td>                                                                        
                         </tr>                                                                                                                                
@@ -95,7 +95,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title" v-text="titulo"></h4>
                     <button type="button" class="close" @click="cerrarModal" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">X</span>
+                    <span aria-hidden="true">X</span>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -127,7 +127,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Eliminar idioma</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">×</span>
+                    <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">

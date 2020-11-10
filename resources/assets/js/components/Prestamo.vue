@@ -10,7 +10,7 @@
             <!-- Ejemplo de tabla Listado -->
             <div class="card">
                 <div class="card-header">
-                  <h6> <i class="fa fas fa-bookmark"></i> Prestamo de libros</h6> 
+                <h6> <i class="fa fas fa-bookmark"></i> Prestamo de libros</h6> 
                 </div>
                     <div class="card-body">
                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">

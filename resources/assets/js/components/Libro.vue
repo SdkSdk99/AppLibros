@@ -161,7 +161,7 @@
                             <label class="col-md-1 form-control-label" for="text-input">Idioma</label>
                             <div class="col-md-5">
                                 <select class="form-control" v-model="id_idioma" id="exampleFormControlSelect4">
-                                    <option v-for="objeto in arrayIdioma" :key="objeto.id" :value="objeto.id" v-text="objeto.nombre"></option>
+                                <option v-for="objeto in arrayIdioma" :key="objeto.id" :value="objeto.id" v-text="objeto.nombre"></option>
                                 </select>
                                 <span class="help-block">(*) Seleccione el idioma</span>
                             </div>

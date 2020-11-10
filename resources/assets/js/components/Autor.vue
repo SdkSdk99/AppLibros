@@ -283,7 +283,7 @@
                         id:data['id']
                         })
                         .then(function(response){
-                            me.listAutor();
+                        me.listAutor();
                         })
                         .catch(function(error){
                         console.log(error);

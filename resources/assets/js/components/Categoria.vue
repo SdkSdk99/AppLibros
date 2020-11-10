@@ -38,10 +38,10 @@
                             <td v-text="objeto.nombre"></td>
                             <td>
                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" @click="abrirModal('editar',objeto)">
-                                  <i class="icon-pencil"></i>
+                                <i class="icon-pencil"></i>
                                 </button> &nbsp;
                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" @click="eliminarCat(objeto)">
-                                  <i class="icon-trash"></i>
+                                <i class="icon-trash"></i>
                                 </button>
                             </td>                                                                        
                         </tr>                                                                                                                                
@@ -72,7 +72,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title" v-text="titulo"></h4>
                     <button type="button" class="close" @click="cerrarModal" aria-label="Close">
-                      <span aria-hidden="true">X</span>
+                    <span aria-hidden="true">X</span>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -104,7 +104,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Eliminar Categoría</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">X</span>
+                    <span aria-hidden="true">X</span>
                     </button>
                 </div>
                 <div class="modal-body">
